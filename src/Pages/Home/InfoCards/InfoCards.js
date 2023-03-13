@@ -2,6 +2,7 @@ import React from 'react';
 import clock from '../../../assets/icons/clock.svg'
 import marker from '../../../assets/icons/marker.svg'
 import phone from '../../../assets/icons/phone.svg'
+import InfoCard from './InfoCard';
 
 const InfoCards = () => {
     const cardData = [
@@ -9,27 +10,32 @@ const InfoCards = () => {
             id: 1,
             name: 'Opening Hours',
             description: 'Open 9.00 am to 5.00pm Everyday',
-            Icon: clock,
+            icon: clock,
             bgclass: 'bg-primary'
         },
         {
             id: 2,
             name: 'Our Location',
             description: 'Open 9.00 am to 5.00pm Everyday',
-            Icon: marker,
+            icon: marker,
             bgclass: 'bg-accent'
         },
         {
             id: 3,
             name: 'Contact Us Now',
             description: 'Open 9.00 am to 5.00pm Everyday',
-            Icon: phone,
+            icon: phone,
             bgclass: 'bg-primary'
         }
     ]
     return (
-        <div>
-            <h3>hstjtrnssfjjyjfdghj</h3>
+        <div className='grid gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3'>
+            {
+                cardData.map(card => <InfoCard
+                    key={card.id}
+                    card={card}
+                ></InfoCard>)
+            }
         </div>
     );
 };
