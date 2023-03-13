@@ -9,19 +9,19 @@ const Services = () => {
     const servicesData = [
         {
             id: 1,
-            Name: 'Fluoride Treatment',
+            name : 'Fluoride Treatment',
             description: 'ajkgfjafsrngafsg asgslfhgs fdsfdslk;fds fhuAFDSNGVJF GAJDHSG',
             img: fluoride
         },
         {
             id: 2,
-            Name: 'Cavity Filling',
+            name : 'Cavity Filling',
             description: 'ajkgfjafsrngafsg asgslfhgs fdsfdslk;fds fhuAFDSNGVJF GAJDHSG',
             img: cavity
         },
         {
             id: 3,
-            Name: 'Teeth Whitening',
+            name : 'Teeth Whitening',
             description: 'ajkgfjafsrngafsg asgslfhgs fdsfdslk;fds fhuAFDSNGVJF GAJDHSG',
             img: whitening
         },
