@@ -16,7 +16,7 @@ const Services = () => {
         {
             id: 2,
             name: 'Cavity Filling',
-            description: 'ajkgfjafsrngafsg asgslfhgs fdsfdslk;fds fhuAFDSNGVJF GAJDHSG',
+            description: 'This gives him or her enough time to take x-rays if needed, talk to you about the procedure and complete the dental work. Before filling cavities, your dentist will numb your teeth, gums and surrounding skin to avoid and lessen discomfort during the procedure.He or she will drill out the decay in the tooth and replace it with a filling. ',
             img: cavity
         },
         {
