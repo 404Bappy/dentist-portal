@@ -22,7 +22,7 @@ const Services = () => {
         {
             id: 3,
             name: 'Teeth Whitening',
-            description: 'ajkgfjafsrngafsg asgslfhgs fdsfdslk;fds fhuAFDSNGVJF GAJDHSG',
+            description: 'Teeth whitening is a form of dentistry and should only be carried out by a dentist or another regulated dental professional, such as a dental hygienist or dental, on the prescription of a dentist.Some beauty salons offer teeth whitening, but this is illegal if theres no dental professional, and it may put your oral health at risk.',
             img: whitening
         },
     ]
