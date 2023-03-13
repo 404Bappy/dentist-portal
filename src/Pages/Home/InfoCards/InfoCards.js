@@ -1,4 +1,5 @@
 import React from 'react';
+// import clock from '../../../assets/icons/clock.png'
 import clock from '../../../assets/icons/clock.svg';
 import marker from '../../../assets/icons/marker.svg';
 import phone from '../../../assets/icons/phone.svg';
@@ -11,25 +12,25 @@ const InfoCards = () => {
             name: 'Opening Hours',
             description: 'Open 9.00 am to 5.00pm Everyday',
             icon: clock,
-            bgclass: 'bg-primary'
+            bgClass: 'bg-gradient-to-r from-primary to-secondary'
         },
         {
             id: 2,
             name: 'Our Location',
             description: 'Open 9.00 am to 5.00pm Everyday',
             icon: marker,
-            bgclass: 'bg-accent'
+            bgClass: 'bg-accent'
         },
         {
             id: 3,
             name: 'Contact Us Now',
             description: 'Open 9.00 am to 5.00pm Everyday',
             icon: phone,
-            bgclass: 'bg-primary'
+            bgClass: 'bg-gradient-to-r from-primary to-secondary'
         }
     ]
     return (
-        <div className='grid gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3'>
+        <div className='grid mt-10 gap-6 grid-cols-1  md:grid-cols-2 lg:grid-cols-3'>
             {
                 cardData.map(card => <InfoCard
                     key={card.id}
