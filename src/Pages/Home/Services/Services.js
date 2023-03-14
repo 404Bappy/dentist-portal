@@ -2,6 +2,7 @@ import React from 'react';
 import fluoride from '../../../assets/images/fluoride.png';
 import cavity from '../../../assets/images/cavity.png';
 import whitening from '../../../assets/images/whitening.png';
+import treatment from '../../../assets/images/treatment.png'
 import Service from './Service';
 
 
@@ -40,7 +41,20 @@ const Services = () => {
                     ></Service>)
                 }
             </div>
+
+
+            <div className="hero  ">
+                <div className="hero-content flex-col lg:flex-row mt-10 p-20">
+                    <img src={treatment} className=" rounded-lg lg:w-1/3 shadow-2xl" alt='' />
+                <div className='w-'>
+                        <h1 className="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
+                        <p className="py-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque repudiandae, voluptas facere veritatis perspiciatis totam soluta sapiente veniam dicta similique quos aliquid odio suscipit! Ducimus debitis iste et perferendis corporis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia eos id porro facere pariatur qui vero voluptate nulla veritatis velit enim cum ab quidem ex, quaerat laborum voluptas praesentium maxime.</p>
+                        <button className="btn btn-primary h-14 bg-gradient-to-r from-primary to-secondary text-white">Get Started</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     );
 };
 
