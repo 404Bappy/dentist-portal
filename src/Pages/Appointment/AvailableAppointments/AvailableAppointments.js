@@ -1,12 +1,33 @@
 import { format } from 'date-fns';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import AppointmentOption from './AppointmentOption';
 
 const AvailableAppointments = ({ selectedDate }) => {
+    const [appointmentOptions, setAppointmentOptions] = useState([]);
+
+
+    useEffect(() => {
+        fetch('appointmentOptions.json')
+            .then(res => res.json())
+            .then(data => setAppointmentOptions(data))
+    }, [])
     return (
-        <div>
+        <section className='mt-16'>
             <p className='text-center text-secondary font-bold'>Available Appointment on {format(selectedDate, 'PP')}</p>
-        </div>
+            <div className='grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
+                {
+                    appointmentOptions.map(option => <AppointmentOption
+                    key={option._id}
+                    appointmentOptions={option}
+
+                    ></AppointmentOption>)
+                }
+            </div>
+        </section>
     );
 };
 
 export default AvailableAppointments;
+
+
+
