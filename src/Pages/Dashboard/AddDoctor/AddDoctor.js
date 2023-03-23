@@ -27,6 +27,9 @@ const AddDoctor = () => {
                 </div>
 
 
+                <br />
+                <input className='btn btn-accent w-full' value="Sign Up" type="submit" />
+                {signUpError && <p className='text-red-600'>{signUpError}</p>}
             </form>
 
         </div>
