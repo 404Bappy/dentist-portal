@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form';
 
 const AddDoctor = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const handleAddDoctor = data =>{
+        
+    }
     return (
         <div>
             <h2 className='text-3xl font-bold text-red-600'>Add A Doctor</h2>
