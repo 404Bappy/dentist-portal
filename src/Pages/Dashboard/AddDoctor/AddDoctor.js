@@ -1,4 +1,5 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const AddDoctor = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
