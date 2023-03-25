@@ -3,7 +3,6 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 const AllUsers = () => {
-
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -12,6 +11,7 @@ const AllUsers = () => {
             return data;
         }
     });
+
 
     const handleMakeAdmin = id => {
         fetch(`http://localhost:9000/users/admin/${id}`, {
@@ -23,16 +23,15 @@ const AllUsers = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    toast.success('make admin successful!')
+                    toast.success('Make admin successful!')
                     refetch();
                 }
             })
-
     }
 
     return (
         <div>
-            <h2 className='text-3xl'> All Users</h2>
+            <h3 className='text-3xl font-bold text-red-600'>All  USers</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full">
 
@@ -52,10 +51,9 @@ const AllUsers = () => {
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-secondary'>Make Admin</button>}</td>
-                                <td><button className='btn btn-xs btn-primary'>Delete</button></td>
-                            </tr>
-                            )
+                                <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
+                                <td><button className='btn btn-xs bg-red-500'>Delete</button></td>
+                            </tr>)
                         }
 
                     </tbody>

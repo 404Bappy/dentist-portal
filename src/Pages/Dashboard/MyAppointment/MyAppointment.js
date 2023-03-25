@@ -1,6 +1,8 @@
+
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
+
 
 const MyAppointment = () => {
     const { user } = useContext(AuthContext);
@@ -12,7 +14,7 @@ const MyAppointment = () => {
         queryFn: async () => {
             const res = await fetch(url, {
                 headers: {
-                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                   authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
             });
             const data = await res.json();
@@ -22,9 +24,8 @@ const MyAppointment = () => {
 
     return (
         <div>
-            <h3 className='text-2xl font-bold text-red-600'>My Appointments</h3>
-
-            <div className="overflow-x-auto mt-4">
+            <h3 className='text-2xl font-bold text-red-600 mb-5'>My Appointments</h3>
+            <div className="overflow-x-auto">
                 <table className="table w-full">
 
                     <thead>
@@ -45,6 +46,7 @@ const MyAppointment = () => {
                                 <td>{booking.appointmentDate}</td>
                                 <td>{booking.slot}</td>
                             </tr>)
+
                         }
                     </tbody>
                 </table>
