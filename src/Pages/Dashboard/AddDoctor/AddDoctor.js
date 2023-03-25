@@ -3,13 +3,14 @@ import { useForm } from 'react-hook-form';
 
 const AddDoctor = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const handleAddDoctor = data =>{
-        
+    const handleAddDoctor = data => {
+        console.log(data);
+
     }
     return (
-        <div>
+        <div className='w-96 p-7'>
             <h2 className='text-3xl font-bold text-red-600'>Add A Doctor</h2>
-            <form onSubmit={handleSubmit(handleSignup)}>
+            <form onSubmit={handleSubmit(handleAddDoctor)}>
                 <div className="form-control w-full max-w-xs">
                     <label className="label"><span className="label-text">Name</span></label>
                     <input type="text" {...register("name", { required: "Name is required" })} className="input input-bordered w-full max-w-xs" />
@@ -25,15 +26,14 @@ const AddDoctor = () => {
 
 
                 <div className="form-control w-full max-w-xs">
-                    <label className="label"><span className="label-text">Password</span></label>
-                    <input type="password" {...register("password", { required: "Password is required", minLength: { value: 6, message: "Password must be 6 charecter or longer" }, pattern: { value: /(?=.*[A-Z])(?=)(?=.*[0-9])/, message: "Password must be strong" } })} className="input input-bordered w-full max-w-xs" />
-                    {errors.password && <p className='text-red-600'>{errors.password.message}</p>}
+                    <label className="label"><span className="label-text">Speciality</span></label>
+
                 </div>
 
 
                 <br />
-                <input className='btn btn-accent w-full' value="Sign Up" type="submit" />
-                {signUpError && <p className='text-red-600'>{signUpError}</p>}
+                <input className='btn btn-accent w-full' value="Add Doctor" type="submit" />
+
             </form>
 
         </div>
