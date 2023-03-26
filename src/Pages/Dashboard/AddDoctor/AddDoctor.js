@@ -45,8 +45,8 @@ const AddDoctor = () => {
                 <div className="form-control w-full max-w-xs">
                     <label className="label"><span className="label-text">Speciality</span></label>
                     <select
-                    {...register('specialty')}
-                     className="select input-bordered w-full max-w-xs">
+                        {...register('specialty')}
+                        className="select input-bordered w-full max-w-xs">
 
                         {
                             specialties.map(specialty => <option key={specialty._id} value={specialty.name}
