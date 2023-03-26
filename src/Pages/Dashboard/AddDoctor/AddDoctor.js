@@ -27,7 +27,11 @@ const AddDoctor = () => {
 
                 <div className="form-control w-full max-w-xs">
                     <label className="label"><span className="label-text">Speciality</span></label>
-
+                    <select className="select select-bordered w-full max-w-xs">
+                        <option disabled selected>Pick a Specialty</option>
+                        <option>Han Solo</option>
+                        <option>Greedo</option>
+                    </select>
                 </div>
 
 
