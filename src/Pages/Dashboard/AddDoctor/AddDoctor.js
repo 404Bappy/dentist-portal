@@ -45,7 +45,7 @@ const AddDoctor = () => {
                 <div className="form-control w-full max-w-xs">
                     <label className="label"><span className="label-text">Speciality</span></label>
                     <select className="select select-bordered w-full max-w-xs">
-                        <option disabled selected>Please Select a Specialty</option>
+
                         {
                             specialties.map(specialty => <option key={specialty._id} value={specialty.name}
                             >{specialty.name}</option>)
@@ -53,6 +53,12 @@ const AddDoctor = () => {
 
 
                     </select>
+                </div>
+
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"><span className="label-text">Photo</span></label>
+                    <input type="text" {...register("name", { required: "Name is required" })} className="input input-bordered w-full max-w-xs" />
+                    {errors.name && <p className='text-red-600'>{errors.name.message}</p>}
                 </div>
 
 
