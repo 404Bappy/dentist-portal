@@ -2,12 +2,15 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { json } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import Loading from '../../Shared/Loading/Loading';
 
 const AddDoctor = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+   
     const imageHostKey = process.env.REACT_APP_imgbb_key;
+
+    const navigate = useNavigate();
 
 
 
@@ -55,6 +58,7 @@ const AddDoctor = () => {
                         .then(result => {
                             console.log(result);
                             toast.success(`${data.name} is added successfully`);
+                            navigate('/dashboard/managedoctors')
                         })
 
                 }
