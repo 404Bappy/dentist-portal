@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { json } from 'react-router-dom';
 import Loading from '../../Shared/Loading/Loading';
 
 const AddDoctor = () => {
@@ -32,6 +34,29 @@ const AddDoctor = () => {
             .then(imgData => {
                 if (imgData.success) {
                     console.log(imgData.data.url);
+                    const doctor = {
+                        name: data.name,
+                        email: data.email,
+                        specialty: data.specialty,
+                        image: imgData.data.url
+                    }
+
+                    //Save Doctor Information to the Database
+
+                    fetch('http://localhost:9000/doctors', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(doctor)
+                    })
+                        .then(res => res, json())
+                        .then(result => {
+                            console.log(result);
+                            toast.success(`${data.name} is added successfully`);
+                        })
+
                 }
             })
 
