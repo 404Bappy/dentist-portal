@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Loading from '../../Shared/Loading/Loading';
 
 const ManageDoctors = () => {
-    const { data: doctors, } = useQuery({
+    const { data: doctors, isLoading } = useQuery({
         queryKey: ['doctors'],
         queryFn: async () => {
             try {
@@ -20,6 +21,11 @@ const ManageDoctors = () => {
             }
         }
     })
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
     return (
         <div>
             <h2 className='text-3xl font-bold text-red-600'>Manage Doctors: {doctors?.length}</h2>
@@ -38,20 +44,25 @@ const ManageDoctors = () => {
                     </thead>
                     <tbody>
                         {
-                            doctors.map(doctor => <tr key={doctor._id}>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
-                                <td>Blue</td>
-                                <td>Blue</td>
+                            doctors.map((doctor, i) => <tr key={doctor._id}>
+                                <th>{i + 1}</th>
+                                <td><div className="avatar">
+                                    <div className="w-24 rounded-full">
+                                        <img src={doctor.image} alt="" />
+                                    </div>
+                                </div></td>
+                                <td>{doctor.name}</td>
+                                <td>{doctor.email}</td>
+                                <td>{doctor.specialty}</td>
+                                <td><button className="btn btn-sm btn-error">Delete</button></td>
+
                             </tr>)
                         }
-
                     </tbody>
                 </table>
             </div>
         </div>
+
     );
 };
 
