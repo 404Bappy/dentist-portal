@@ -4,7 +4,15 @@ import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal'
 import Loading from '../../Shared/Loading/Loading';
 
 const ManageDoctors = () => {
-    const [deletingDoctor, setDeletingDoctor] = useState(null)
+    const [deletingDoctor, setDeletingDoctor] = useState(null);
+    const closeModal = () => {
+        setDeletingDoctor(null);
+    }
+
+    const handleDeleteDoctor = doctor => {
+        console.log(doctor);
+    }
+
     const { data: doctors, isLoading } = useQuery({
         queryKey: ['doctors'],
         queryFn: async () => {
@@ -67,7 +75,13 @@ const ManageDoctors = () => {
                 </table>
             </div>
             {
-                deletingDoctor && <ConfirmationModal title={`Are you sure you want to delete?`}></ConfirmationModal>
+                deletingDoctor && <ConfirmationModal
+                    title={`Are you sure you want to delete?`}
+                    message={`If you  delete ${deletingDoctor.name}. It can not be undone `}
+                    successAction={handleDeleteDoctor}
+                    modalData={deletingDoctor}
+                    closeModal={closeModal}
+                ></ConfirmationModal>
             }
         </div>
 

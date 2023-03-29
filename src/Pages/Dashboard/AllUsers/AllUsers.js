@@ -31,7 +31,7 @@ const AllUsers = () => {
 
     return (
         <div>
-            <h3 className='text-3xl font-bold text-red-600'>All  USers</h3>
+            <h3 className='text-2xl font-bold text-red-600 mt-10'>All  Users</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full">
 

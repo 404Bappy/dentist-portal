@@ -24,7 +24,7 @@ const MyAppointment = () => {
 
     return (
         <div>
-            <h3 className='text-2xl font-bold text-red-600 mb-5'>My Appointments</h3>
+            <h3 className='text-2xl font-bold text-red-600 mb-2 mt-7'>My Appointments</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full">
 
