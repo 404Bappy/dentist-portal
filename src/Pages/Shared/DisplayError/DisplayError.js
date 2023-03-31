@@ -6,8 +6,9 @@ const DisplayError = () => {
     return (
         <div>
             <p className='text-red-500'>Something went Wrong !!!</p>
-            <p className='text-red-400'></p>
-        </div> 
+            <p className='text-red-400'>{error.statusText || error.message}</p>
+            <h4 className='text-3xl'> Please <button>Sign Out </button> and log back in</h4>
+        </div>
     );
 };
 
