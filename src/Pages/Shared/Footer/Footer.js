@@ -28,7 +28,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='text-center mt-32'>
-                <p>Copyright © 2023 - All right reserved by Dentist Association Ltd</p>
+                <p>Copyright © 2023 - All right reserved by Dentist Association Ltd (Test)</p>
             </div>
         </footer>
     );
