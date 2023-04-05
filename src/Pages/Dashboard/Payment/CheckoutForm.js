@@ -72,9 +72,31 @@ const CheckoutForm = ({ booking }) => {
             setSuccess('Congrats ! Your Payment Complited');
             setTransactionId(paymentIntent.id);
 
+            //store payment info in the database
+            const payment = {
+
+            }
+
+            fetch('http://localhost:9000/payments', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    setSuccess('Congrats ! Your Payment Complited');
+                    setTransactionId(paymentIntent.id);
+                }
+            })
+
         }
         setProcessing(false);
- 
+
 
     }
 
@@ -100,7 +122,7 @@ const CheckoutForm = ({ booking }) => {
                 />
                 <button className='btn btn-sm mt-6 btn-primary'
                     type="submit"
-                    disabled={!stripe || !clientSecret || processing }>
+                    disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>
