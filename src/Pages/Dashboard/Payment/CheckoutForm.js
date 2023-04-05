@@ -9,7 +9,7 @@ const CheckoutForm = ({ booking }) => {
     const [clientSecret, setClientSecret] = useState("");
     const stripe = useStripe();
     const elements = useElements();
-    const { price, email, patient } = booking;
+    const { price, email, patient, _id } = booking;
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
@@ -69,12 +69,14 @@ const CheckoutForm = ({ booking }) => {
             return;
         }
         if (paymentIntent.status === 'succeeded') {
-            setSuccess('Congrats ! Your Payment Complited');
-            setTransactionId(paymentIntent.id);
+            console.log('Card info', card);
 
             //store payment info in the database
             const payment = {
-
+                price,
+                transactionId: paymentIntent.id,
+                email,
+                bookingId: _id
             }
 
             fetch('http://localhost:9000/payments', {
@@ -85,14 +87,14 @@ const CheckoutForm = ({ booking }) => {
                 },
                 body: JSON.stringify(payment)
             })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if(data.insertedId){
-                    setSuccess('Congrats ! Your Payment Complited');
-                    setTransactionId(paymentIntent.id);
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.insertedId) {
+                        setSuccess('Congrats ! Your Payment Complited');
+                        setTransactionId(paymentIntent.id);
+                    }
+                })
 
         }
         setProcessing(false);
