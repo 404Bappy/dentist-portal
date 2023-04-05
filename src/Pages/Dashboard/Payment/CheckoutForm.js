@@ -63,6 +63,9 @@ const CheckoutForm = ({ booking }) => {
             setCardError(confirmError.message);
             return;
         }
+        if (paymentIntent.status === 'succeeded') {
+
+        }
         console.log('paymentIntent', paymentIntent);
 
     }
