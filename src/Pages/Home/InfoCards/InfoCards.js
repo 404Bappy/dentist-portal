@@ -23,7 +23,8 @@ const InfoCards = () => {
         {
             id: 3,
             name: 'Contact Us Now',
-            description: 'Open 9.00 am to 5.00pm Everyday',
+            description: 'Phone : 01849675876',
+            description: 'Phone : 01849675876',
             icon: phone,
             bgClass: 'bg-gradient-to-r from-primary to-secondary'
         }
