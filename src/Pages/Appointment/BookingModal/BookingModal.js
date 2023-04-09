@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
@@ -8,6 +8,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
     const { name: treatmentName, Slots, price } = treatment; //treatment is just another name of appointment options with name, slots, _id//
     const date = format(selectedDate, 'PP');
     const { user } = useContext(AuthContext);
+    const [cancelModal, setCancelModal] = useState(false)
 
     const handleBooking = event => {
         event.preventDefault();
@@ -48,7 +49,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
                 }
             })
 
-       setTreatment(null);
+        setTreatment(null);
     }
     return (
         <>
@@ -57,7 +58,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
                 <div className="modal-box relative">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">{treatmentName}</h3>
-                    <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
+                    {!cancelModal && <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
                         <input type="text" disabled value={date} className="input w-full input-bordered" />
                         <select name='slot' className="select select-bordered w-full">
 
@@ -73,9 +74,22 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
                         <input name='phone' type="text" placeholder="Phone Number" className="input w-full input-bordered" />
                         <br />
                         <input className='btn btn-accent w-full' type="submit" value="Submit" />
-                    </form>
+                    </form>}
+                    {cancelModal && <div className=''>
+                        <ul className='gap-3 uppercase'>
+                            <li>policy 1</li>
+                            <li>policy 2</li>
+                            <li>policy 3</li>
+                        </ul>
+                        <button className='btn btn-primary mt-4 w-full text-white' onClick={() => setCancelModal(!cancelModal)}>Back</button>
+
+                    </div>}
+
+                    {!cancelModal && <button className='btn btn-primary mt-4 w-full text-white' onClick={() => setCancelModal(true)}>Cancelation Policy</button>}
                 </div>
             </div>
+
+
         </>
     );
 };
