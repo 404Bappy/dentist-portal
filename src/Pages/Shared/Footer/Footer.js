@@ -4,8 +4,8 @@ import footer from "../../../assets/images/footer.png";
 
 const Footer = () => {
     return (
-        <footer style={{ background: `url(${footer})`, backgroundSize: 'cover' }} className=" p-10">
-            <div className='footer'>
+        <footer style={{ background: `url(${footer})`, backgroundSize: 'cover',  }} className=" p-10">
+            <div className='footer' style={{ justifyContent:'center', gap:'330px'}}>
                 <div >
                     <span className="footer-title">Services</span>
                     <Link to="/" className="link link-hover">Branding</Link>

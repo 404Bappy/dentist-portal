@@ -9,14 +9,14 @@ const InfoCards = () => {
         {
             id: 1,
             name: 'Opening Hours',
-            description: 'Open 9.00 am to 5.00pm Everyday',
+            description: 'Open 8.00 am to 5.00pm Everyday',
             icon: clock,
             bgClass: 'bg-gradient-to-r from-primary to-secondary'
         },
         {
             id: 2,
             name: 'Our Location',
-            description: 'Open 9.00 am to 5.00pm Everyday',
+            description: 'Ta#136, 2 Gulshan Badda Link Rd, Dhaka 1212',
             icon: marker,
             bgClass: 'bg-accent'
         },
